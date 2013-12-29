@@ -2,7 +2,7 @@
 #include "light_ws2812.h"
 
 struct CRGB { uint8_t g; uint8_t r; uint8_t b; };
-struct CRGB refled[20];
+struct CRGB refled[23];
 struct CRGB led[13];
 uint8_t mask;
 // uint8_t pos=0;
@@ -17,26 +17,30 @@ void appInitHardware(void) {
 // Initialise the software
 TICK_COUNT appInitSoftware(TICK_COUNT loopStart){
 	
-	refled[0].r=16;refled[0].g=0;refled[0].b=0;
-	refled[1].r=15;refled[1].g=0;refled[1].b=1;
-	refled[2].r=14;refled[2].g=0;refled[2].b=2;
-	refled[3].r=13;refled[3].g=0;refled[3].b=3;
-	refled[4].r=12;refled[4].g=0;refled[4].b=4;
-	refled[5].r=11;refled[5].g=0;refled[5].b=5;
-	refled[6].r=10;refled[6].g=0;refled[6].b=6;
-	refled[7].r=9;refled[7].g=0;refled[7].b=7;
-	refled[8].r=8;refled[8].g=0;refled[8].b=8;
-	refled[9].r=7;refled[9].g=0;refled[9].b=9;
-	refled[10].r=6;refled[10].g=0;refled[10].b=10;
-	refled[11].r=5;refled[11].g=0;refled[11].b=11;
-	refled[12].r=14;refled[12].g=0;refled[12].b=2;
-	refled[13].r=13;refled[13].g=0;refled[13].b=3;
-	refled[14].r=12;refled[14].g=0;refled[14].b=4;
-	refled[15].r=11;refled[15].g=0;refled[15].b=5;
-	refled[16].r=10;refled[16].g=0;refled[16].b=6;
-	refled[17].r=9;refled[17].g=0;refled[17].b=7;
-	refled[18].r=8;refled[18].g=0;refled[18].b=8;
-	refled[19].r=7;refled[19].g=0;refled[19].b=9;
+	refled[0].r=16;refled[0].g=0 ;refled[0].b=0;
+	refled[1].r=16;refled[1].g=0 ;refled[1].b=1;
+	refled[2].r=15;refled[2].g=0 ;refled[2].b=1;
+	refled[3].r=15;refled[3].g=0 ;refled[3].b=2;
+	refled[4].r=14;refled[4].g=0 ;refled[4].b=2;
+	refled[5].r=14;refled[5].g=0 ;refled[5].b=3;
+	refled[6].r=13;refled[6].g=0 ;refled[6].b=3;
+	refled[7].r=13;refled[7].g=0 ;refled[7].b=4;
+	refled[8].r=12;refled[8].g=0 ;refled[8].b=4;
+	refled[9].r=12;refled[9].g=0 ;refled[9].b=5;
+	refled[10].r=11;refled[10].g=0;refled[10].b=5;
+	refled[11].r=11;refled[11].g=0;refled[11].b=6;
+	
+	refled[12].r=10;refled[12].g=0 ;refled[12].b=6;
+	refled[13].r=10;refled[13].g=0 ;refled[13].b=7;
+	refled[14].r=9 ;refled[14].g=0 ;refled[14].b=7;
+	refled[15].r=9 ;refled[15].g=0 ;refled[15].b=8;
+	refled[16].r=8 ;refled[16].g=0 ;refled[16].b=8;
+	refled[17].r=8 ;refled[17].g=0 ;refled[17].b=9;
+	refled[18].r=7 ;refled[18].g=0 ;refled[18].b=9;
+	refled[19].r=7 ;refled[19].g=0 ;refled[19].b=10;
+	refled[20].r=6 ;refled[20].g=0 ;refled[20].b=10;
+	refled[21].r=6 ;refled[21].g=0 ;refled[21].b=11;
+	refled[22].r=5 ;refled[21].g=0 ;refled[21].b=11;
 	
 	
 	return 0;
@@ -58,7 +62,7 @@ TICK_COUNT appControl(LOOP_COUNT loopCount, TICK_COUNT loopStart) {
 	// refled[10].r=6;refled[10].g=0;refled[10].b=10;
 	// refled[11].r=5;refled[11].g=0;refled[11].b=11;
 	
-	for (j=0; j < 12; j++) {
+	for (j=0; j < 23; j++) {
 		cli();							// Disable interrupts. Can be removed if no interrupts are used.
 		for (i=0; i<13; i++)
 			led[i] = refled[j];
@@ -67,7 +71,7 @@ TICK_COUNT appControl(LOOP_COUNT loopCount, TICK_COUNT loopStart) {
 			
 		sei();							// Enable interrupts.
 		
-		delay_ms(250);	
+		delay_ms(125);	
 	}	
 	// for (j=0; j < 12; j++) {
 		// cli();							// Disable interrupts. Can be removed if no interrupts are used.
@@ -85,7 +89,7 @@ TICK_COUNT appControl(LOOP_COUNT loopCount, TICK_COUNT loopStart) {
 	
 	// delay_ms(250);	
 	
-	for (j=11; j >= 0; j--) {
+	for (j=22; j >= 0; j--) {
 		cli();							// Disable interrupts. Can be removed if no interrupts are used.
 		for (i=0; i<13; i++)
 			led[i] = refled[j];
@@ -94,7 +98,7 @@ TICK_COUNT appControl(LOOP_COUNT loopCount, TICK_COUNT loopStart) {
 			
 		sei();							// Enable interrupts.
 		
-		delay_ms(250);
+		delay_ms(125);
 	}
 	
 	// for (i=0; i<12; i++)
