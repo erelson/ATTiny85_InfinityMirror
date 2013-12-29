@@ -6,3 +6,12 @@ off one of my computer's USB ports.
 
 Poor quality video (when code was buggy):
 http://www.youtube.com/watch?v=Cx5PU7jx8t8
+
+Notes
+=====
+Code is a Webbotlib project (.prj file) that is built with WinAVR (e.g. AVR Studio 4).
+
+You will need to use the .prj file in Project Designer to generate the various
+Webbotlib files needed to actually compile the code...
+
+Needs Webbotlib 2.11+.
