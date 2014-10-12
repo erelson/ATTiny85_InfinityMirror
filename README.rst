@@ -7,6 +7,9 @@ off one of my computer's USB ports.
 Poor quality video (when code was buggy):
 http://www.youtube.com/watch?v=Cx5PU7jx8t8
 
+Hack-A-Day.io project page:
+http://hackaday.io/project/216-Infinity-Mirror-with-a-Convex-Mirror
+
 Notes
 =====
 Code is a Webbotlib project (.prj file) that is built with WinAVR (e.g. AVR Studio 4).
